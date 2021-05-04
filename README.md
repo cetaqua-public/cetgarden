@@ -5,4 +5,8 @@ Software para monitorización de cultivo hidropónico
 # Dependencias
 **Schedule:** pip install schedule
 
-**DHT22:** pip install adafruit-circuitpython-dht
+**DHT22:** 
+
+pip install adafruit-circuitpython-dht (libreria de python)
+
+sudo apt-get install libgpiod2
