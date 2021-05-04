@@ -3,8 +3,8 @@ Created on Fri Sept 4 09:39 2020
 
 @author: Alejandro Palomino
 """
-#from __future__ import annotations
 from abc import ABCMeta, abstractmethod
+from typing import List
 
 class Abstract_Database(metaclass=ABCMeta):
     def __init__(self, db_name: str, ip="40.78.88.245", port="27017", username="root", password="ZxYpMz8Geyrd"):

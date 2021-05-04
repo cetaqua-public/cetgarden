@@ -6,9 +6,13 @@ from Routiner.routiner import Routiner
 import time
 
 if __name__ == "__main__":
+    #Database
+    db_name = "cetgarden"
+    collection = "Andalucia"
+
     # Routiner time parameters for each sensor and camera
     camera_routiner_hours = None
-    dht22_sensor_routiner_hours = 3/3600
+    dht22_sensor_routiner_hours = 10/3600
     load_cell_sensor_routiner_hours = 10/3600
 
     #Create keywords and subset of keywords
@@ -16,7 +20,7 @@ if __name__ == "__main__":
     subSetKeywords = ["Temperatura", "Humedad", "Celda Carga"]
 
     #Create DataCollector to coordinate data reception
-    data_collector = DataCollector(keywords, subSetKeywords)
+    data_collector = DataCollector(db_name, collection, keywords, subSetKeywords)
 
     # Create Temperature sensor, load cell sensor and camera object
     camera = Camera(data_collector)

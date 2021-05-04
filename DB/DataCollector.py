@@ -2,10 +2,11 @@ from threading import Semaphore
 from typing import List
 from datetime import datetime
 from typing import Dict
+from DB.mongodb import Database
 
 class DataCollector:
 
-    def __init__(self, keywords: List[str], keys_to_check_to_send_data: List[str]):
+    def __init__(self, DB_name: str, collection_name: str ,keywords: List[str], keys_to_check_to_send_data: List[str]):
         #Check if keys_to_check_to_send_data is a subset of keywords
         if not self.__isSubSet(keys_to_check_to_send_data, keywords):
             raise Exception
@@ -16,6 +17,8 @@ class DataCollector:
         for key in keywords:
             self.__data[key] = list()
 
+        self.__db = Database(DB_name)
+        self.__collection = collection_name
         self.__semaphore = Semaphore()
 
     def add_data(self, data, keyword: str):
@@ -35,7 +38,7 @@ class DataCollector:
                 data[key] = self.__data[key].pop(0)
             
             #Send to mongo
-            print(datetime.now(), ": " , data)
+            self.__db.send_data_query(self.__collection, data)
         self.__semaphore.release()
 
     def __ready_for_send_to_db(self):

@@ -5,6 +5,8 @@ Software para monitorización de cultivo hidropónico
 # Dependencias
 **Schedule:** pip install schedule
 
+**Base de datos mongo:** pip install pymongo 
+
 **DHT22:** 
 
 pip install adafruit-circuitpython-dht (libreria de python)

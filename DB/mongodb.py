@@ -4,9 +4,10 @@ Created on Fri Sept 4 10:01 2020
 @author: Alejandro Palomino
 """
 
-from bd.abstract_database import Abstract_Database
-from MongoDBException import MongoDBException
+from DB.abstract_database import Abstract_Database
+from DB.mongoDBException import MongoDBException
 import pymongo
+from typing import Dict, List
 
 class Database(Abstract_Database):
     
@@ -68,21 +69,25 @@ class Database(Abstract_Database):
             self._close_connection(client)
 
 
-    # def send_multiples_data_query(self, datas: List["data"]):
-    #     #Connect to database
-    #     client = self._connect()
-    #     db = client[self.get_db_name()]
+    def send_multiples_data_query(self, datas: List["data"]):
+        '''
+        Not working yet
+        '''
+        pass
+        # #Connect to database
+        # client = self._connect()
+        # db = client[self.get_db_name()]
 
-    #     for data in datas:
-    #         try:
-    #             # destination = 'USERS'
-    #             # collection = client[MONGODB_DATABASE][destination]
-    #             # collection.insert(data)
-    #             pass
+        # for data in datas:
+        #     try:
+        #         # destination = 'USERS'
+        #         # collection = client[MONGODB_DATABASE][destination]
+        #         # collection.insert(data)
+        #         pass
                 
-    #         except Exception as error:
-    #             print("Error savind data: " + str(error))
-    #             continue
+        #     except Exception as error:
+        #         print("Error savind data: " + str(error))
+        #         continue
 
-    #     #Close connection
-    #     self._close_connection(client)
+        # #Close connection
+        # self._close_connection(client)
