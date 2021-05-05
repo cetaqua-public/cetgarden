@@ -3,15 +3,19 @@
 Software para monitorización de cultivo hidropónico
 
 # Dependencias
-**Schedule:** pip install schedule
+**Schedule:** pip3 install schedule
 
-**Base de datos mongo:** pip install pymongo 
+**Base de datos mongo:** pip3 install pymongo 
 
 **DHT22:** 
 
-pip install adafruit-circuitpython-dht (libreria de python)
+pip3 install adafruit-circuitpython-dht (libreria de python)
 
 sudo apt-get install libgpiod2
+
+**PiCamera:**
+
+sudo apt-get install python3-picamera
 
 # Conexion DHT22 en Rpi 4B
 Con el comando pinout desde la terminal de la rpi obtenemos un mapa de los GPIO

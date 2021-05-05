@@ -16,7 +16,7 @@ class Camera:
         '''
         not implemented yet
         '''
-        pass
+        return "test.jpg"
 
     def take_photo(self):
         with picamera.PiCamera() as picam:
