@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO
-from hx711 import HX711
+from .hx711 import HX711
 
 class LoadCellSensor:
 
@@ -8,14 +8,15 @@ class LoadCellSensor:
         self.__hx.reset()
         self.__hx.tare()
 
-    def __init__(self, data_collector, keyword: str, referenceUnits: float, dt_pin: int, sck_pin: int, num_measure: int):
+    def __init__(self, data_collector, keyword: str, referenceUnits: float, dt_pin: int, sck_pin: int, num_measure: int, simulate=True):
         self.__data_collector = data_collector
-        self.__count = 0
         self.__keyword = keyword
-        self.__hx = HX711(dt_pin, sck_pin)
-        self.__setup_hx711(referenceUnits)
-        self.__num_measure = num_measure
 
+        if not simulate:
+            self.__hx = HX711(dt_pin, sck_pin)
+            self.__setup_hx711(referenceUnits)
+
+        self.__num_measure = num_measure
         self.__i = 0
 
     def getMeasure(self):

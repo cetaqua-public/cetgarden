@@ -26,13 +26,14 @@ class Camera:
 
         '''
         dt = datetime.now()
-        return dt.strftime("%d-%m-%Y_%H:%M")
+        return dt.strftime("%d-%m-%Y_%H:%M") + ".jpg"
 
     def take_photo(self):
         with picamera.PiCamera() as picam:
             picam.start_preview()
-            time.sleep(5) #Esperamos 5 segundos para que la camara este disponible
+            time.sleep(2) #Esperamos 5 segundos para que la camara este disponible
             #(Seguramente se puede mejorar)
+            print("Image captured")
             picam.capture(self.__dir_to_store + "/" + self.__get_img_name())
 
     def real_time_preview(self):

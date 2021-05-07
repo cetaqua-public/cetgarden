@@ -3,6 +3,7 @@ from typing import List
 from datetime import datetime
 from typing import Dict
 from DB.mongodb import Database
+from datetime import datetime
 
 class DataCollector:
 
@@ -34,6 +35,7 @@ class DataCollector:
         if self.__ready_for_send_to_db():
             #Create dict to send to mongo db
             data = dict()
+            data["tiempo"] = datetime.now()
             for key in self.__keys_to_check_to_send_data:
                 data[key] = self.__data[key].pop(0)
             
