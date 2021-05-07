@@ -1,6 +1,7 @@
 import time
 import board
 import adafruit_dht
+
 #Sensor for temperature and humidity
 class DHT22:
 

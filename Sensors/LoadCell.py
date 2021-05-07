@@ -20,7 +20,7 @@ class LoadCellSensor:
         val = self.__hx.get_weight(self.__num_measure)
         self.__hx.power_down()
         self.__hx.power_up()
-        #return val
+        
         #send data to database
 
-    
+        return val
