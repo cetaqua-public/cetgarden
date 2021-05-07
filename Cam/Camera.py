@@ -1,5 +1,6 @@
 import picamera
 import time
+from datetime import datetime
 
 class Camera:
 
@@ -13,10 +14,19 @@ class Camera:
         return self.__dir_to_store
 
     def __get_img_name(self) -> str:
+        '''Return new name base on date and time
+
+        Parameters
+        ----------
+
+        Return
+        ----------
+
+        string representing date and time when the image was taking
+
         '''
-        not implemented yet
-        '''
-        return "test.jpg"
+        dt = datetime.now()
+        return dt.strftime("%d-%m-%Y_%H:%M")
 
     def take_photo(self):
         with picamera.PiCamera() as picam:

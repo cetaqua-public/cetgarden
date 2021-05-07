@@ -16,6 +16,8 @@ class LoadCellSensor:
         self.__setup_hx711(referenceUnits)
         self.__num_measure = num_measure
 
+        self.__i = 0
+
     def getMeasure(self):
         val = self.__hx.get_weight(self.__num_measure)
         self.__hx.power_down()
@@ -24,3 +26,7 @@ class LoadCellSensor:
         #send data to database
 
         return val
+
+    def getSimulatedMeasure(self):
+        self.__data_collector.add_data(self.__i, self.__keyword)
+        self.__i += 1
